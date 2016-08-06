@@ -17,13 +17,12 @@ fs.readFile(__dirname + '/' + meatballFN, function(err, meatball) {
   var canvas = new Canvas(img.width, img.height);
   var ctx = canvas.getContext('2d');
 
-  ctx.drawImage(img, 0, 0);
-
   fs.readFile(__dirname + '/' + styleFN, function(err, style) {
     var img_s = new Image;
     img_s.src = style;
 
     ctx.drawImage(img_s, 0,0);
+    ctx.drawImage(img, 0,0);
 
     var out = fs.createWriteStream(__dirname + '/final-' + filename);
     var stream = canvas.pngStream();

@@ -2,13 +2,15 @@ import numpy as np
 import cv2
 from PIL import Image, ImageDraw
 
+import sys
+
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
-img = cv2.imread('obama.png')
+img = cv2.imread(sys.argv[1])
 h, w = img.shape[:2]
 png = Image.new('RGBA',(w,h))
-png.save('meatballEyes.png', 'PNG')
+png.save('meatball-' + sys.argv[1], 'PNG')
 meatball = Image.open('meatball.png')
 #meatballCV = cv2.imread('meatball.png')
 
@@ -54,7 +56,7 @@ for(x, y, w, h) in faces:
 		offset = (x1 + meatballWidth/4, y2 + meatballHeight/4)
 		meatballEyes = Image.open("eye.png")
 		png.paste(meatball, offset)
-		png.save('meatballEyes.png')
+		png.save('meatball-' + sys.argv[1])
 		#mask = cv2.resize(orig_mask, (meatballWidth, meatballHeight), interpolation = cv2.INTER_AREA)
 		#mask_inv = cv2.resize(orig_mask_inv, (meatballWidth, meatballHeight), interpolation = cv2.INTER_AREA)
 		#roi = roi_color[y1:y2, x1:x2]
