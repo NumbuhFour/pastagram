@@ -18,6 +18,7 @@
   "homepage": "https://github.com/fad4470/pastagram#readme",
   "dependencies": {
     "connect-multiparty": "^2.0.0",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "jimp": "^0.2.24"
   }
 }

@@ -1,7 +1,10 @@
 var fs = require('fs');
 var express = require('express');
 var app = express();
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 
+var process = require('./process');
 
 var index = fs.readFileSync('views/index.html');
 
@@ -11,7 +14,7 @@ app.get('/', function(req, res) {
 });
 
 
-app.post('/upload', function(req, res) {
+app.post('/queue', multipartMiddleware, function(req, res) {
   fs.readFile(req.files.image.path, function(err, data) {
     var imageName = req.files.image.name;
 
@@ -21,10 +24,10 @@ app.post('/upload', function(req, res) {
       res.end();
     }
     else {
-      var newPath = __dirname + '/uploads/' + imageName;
+      var newPath = __dirname + '/queue/' + imageName;
 
       fs.writeFile(newPath, data, function(err) {
-        res.redirect('/uploads/' + imageName);
+        res.redirect('/queue/' + imageName);
       });
     }
   });
