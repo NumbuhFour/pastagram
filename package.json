@@ -1,0 +1,23 @@
+{
+  "name": "pastagram",
+  "version": "1.0.0",
+  "description": "uh",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fad4470/pastagram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fad4470/pastagram/issues"
+  },
+  "homepage": "https://github.com/fad4470/pastagram#readme",
+  "dependencies": {
+    "connect-multiparty": "^2.0.0",
+    "express": "^4.14.0"
+  }
+}
