@@ -1,3 +1,6 @@
 [submodule "Install-OpenCV"]
 	path = Install-OpenCV
 	url = https://github.com/jayrambhia/Install-OpenCV.git
+[submodule "neural-style"]
+	path = neural-style
+	url = https://github.com/jcjohnson/neural-style
