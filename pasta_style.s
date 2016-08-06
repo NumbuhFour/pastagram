@@ -1,0 +1,2 @@
+#!/bin/bash
+th neural_style.lua -style_image ~/Pictures/pasta/384231.jpg -content_image ~/Pictures/brad_pitt.jpg -output_image test.png -model_file models/nin_imagenet_conv.caffemodel -proto_file models/train_val.prototxt -gpu -1 -num_iterations 500 -seed 123 -image_size 512 -content_weight 7 -style_weight 1000 -optimizer lbfgs -content_layers relu0,relu3,relu7,relu12 -style_layers relu0,relu3,relu7,relu12 -style_scale 0.6
